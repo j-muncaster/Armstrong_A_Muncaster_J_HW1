@@ -8,9 +8,31 @@
     <link href="css/main.css" rel="stylesheet">
     <script defer src="js/main.js"></script>
     
-    <title>Homeworkd 1 : AJAX Redux Star Wars API</title>
+    <title>Homework 1 : AJAX Redux Star Wars API</title>
 </head>
 <body>
-    
+    <div class="grid-con">
+                <section class="col-span-full m-col-span-6">
+          <h2>Star Wars Characters</h2>
+          <div id="character-box">
+            <!--dynamically generated list goes here-->
+          </div>
+        </section>
+  
+        <div class="col-span-full m-col-span-6" id="review-box">
+          <h2>Review</h2>
+          <section id="review-con">
+            <!-- template inserted here-->
+          </section>
+          <template id="review-template">
+            <div>
+              <h3 class="character-name"></h3>
+              <p class="movie-title"></p>
+              <p class="movie-description"></p>
+              <!-- star wars character images-->
+            </div>
+          </template>
+        </div>
+      </div>
 </body>
 </html>
