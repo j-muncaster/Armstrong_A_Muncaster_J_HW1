@@ -10,9 +10,14 @@
     
     <title>Homework 1 : AJAX Redux Star Wars API</title>
 </head>
+
 <body>
+  <div id="bg-img">
     <div class="grid-con">
-                <section class="col-span-full m-col-span-6">
+      <div class="lightbox">
+        <img class="logo col-span-3" src="images/star_wars_logo.png" alt="Star Wars Logo"> 
+
+        <section class="col-span-full m-col-span-6">
           <h2>Star Wars Characters</h2>
           <div id="character-box">
             <!--dynamically generated list goes here-->
@@ -24,6 +29,7 @@
           <section id="review-con">
             <!-- template inserted here-->
           </section>
+
           <template id="character-template">
             <div>
               <h3 class="character-name"></h3>
@@ -34,5 +40,7 @@
           </template>
         </div>
       </div>
+    </div>
+  </div>
 </body>
 </html>
