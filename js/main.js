@@ -1,11 +1,4 @@
 (() => {
-    //Routes
-    //Search for movies
-    // https://www.omdbapi.com/?s=speed&apikey=ca8e6bc3
-
-    //One Movie by ID
-    // https://www.omdbapi.com/?i=tt2369135&apikey=ca8e6bc3
-
     // add loading icon(s) for list and content
 
     //for homework source the images for star wars API
@@ -46,7 +39,7 @@
                         link.addEventListener("click", getCharacterDetails);
                     });
                 })
-                .catch(err => console.log(err));
+                .catch(err => console.log("Oops… this page has gone to a galaxy far, far away."));
         }
     
         function getCharacterDetails(e) {
@@ -68,7 +61,7 @@
     
                     reviewCon.appendChild(clone);
                 })
-                .catch(err => console.log(err));
+                .catch(err => console.log("Oops… this page has gone to a galaxy far, far away."));
         }
     
         getCharacters();
