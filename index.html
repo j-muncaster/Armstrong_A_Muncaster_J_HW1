@@ -8,45 +8,49 @@
     <link href="css/main.css" rel="stylesheet">
     <script defer src="js/main.js"></script>
     
-    <title>Homework 1 : AJAX Redux Star Wars API</title>
+    <title>Homework 1 : AJAX Redux Star Wars API by Amy Armstrong & Jo Muncaster</title>
 </head>
 
 <body>
   <div id="bg-img">
+    <h1 class="hidden">Star Wars API</h1>
     <div class="grid-con">
       <div class="lightbox">
         <img class="logo col-span-3" src="images/star_wars_logo.png" alt="Star Wars Logo"> 
 
         <section class="col-span-full m-col-span-6">
           <h2>Star Wars Characters</h2>
-          <div id="character-box">
-            <!--dynamically generated list goes here-->
-          </div>
+            <div id="character-box">
+              <!--dynamically generated list goes here-->
+            </div>
         </section>
   
         <div class="col-span-full m-col-span-6" id="review-box">
           <h2>Review</h2>
-          <section id="review-con">
-        <template id="character-template">
-            <div class="character-review">
-              <h3 class="character-name"></h3>
-              <p class="movie-title"></p>
-              <p class="movie-description"></p>
-          
-              <div class="character-images">
-                <img src="images/image1.jpeg" data-id="1" alt="Luke Skywalker">
-                <img src="images/image5.jpeg" data-id="5" alt="Leia Organa">
-                <img src="images/image10.jpeg" data-id="10" alt="Obi Wan Kenobi">
-                <img src="images/image11.jpeg" data-id="11" alt="Anakin Skywalker">
-                <img src="images/image13.jpeg" data-id="13" alt="Chewbacca">
-                <img src="images/image20.jpeg" data-id="20" alt="Yoda">
-                <img src="images/image36.jpeg" data-id="36" alt="Jar Jar Binks">
-                <img src="images/image35.jpeg" data-id="35" alt="Padmé Amidala">
-                <img src="images/image2.jpeg" data-id="2" alt="C-3PO">
-              </div>
-            </div>
-          </template>
-          </section>  
+            <section id="review-con">
+              <template id="character-template">
+                  <div class="character-review">
+                    <h3 class="character-name"></h3>
+                    <p class="movie-title"></p>
+                    <p class="movie-description"></p>
+                
+                    <div class="character-images">
+                      <img src="images/image1.jpeg" data-id="1" alt="Luke Skywalker">
+                      <img src="images/image5.jpeg" data-id="5" alt="Leia Organa">
+                      <img src="images/image10.jpeg" data-id="10" alt="Obi Wan Kenobi">
+                      <img src="images/image11.jpeg" data-id="11" alt="Anakin Skywalker">
+                      <img src="images/image13.jpeg" data-id="13" alt="Chewbacca">
+                      <img src="images/image20.jpeg" data-id="20" alt="Yoda">
+                      <img src="images/image36.jpeg" data-id="36" alt="Jar Jar Binks">
+                      <img src="images/image35.jpeg" data-id="35" alt="Padmé Amidala">
+                      <img src="images/image2.jpeg" data-id="2" alt="C-3PO">
+                    </div>
+                  </div>
+              </template>
+            </section>
         </div>
+      </div>
+    </div>  
+  </div>
 </body>
 </html>
