@@ -1,49 +1,57 @@
 (() => {
     // Variables
-    const baseUrl = "https://swapi.info/api/";
-    const reviewCon = document.querySelector("#review-con");
     const characterTemplate = document.querySelector("#character-template");
+    const infoCon = document.querySelector("#info-con");
+    const characterBox = document.querySelector("#character-box");
+    const baseUrl = `https://swapi.info/api/`;
 
+    const selectedCharacters = [
+        "Luke Skywalker",
+        "Leia Organa",
+        "Obi-Wan Kenobi",
+        "Anakin Skywalker",
+        "Chewbacca",
+        "Yoda",
+        "Jar Jar Binks",
+        "Padme Amidala",
+        "C-3PO",
+        "R2-D2"
+    ];
 
     // Functions
     function getCharacters(){
-        fetch(`${baseUrl}people`)
+        fetch(`${baseUrl}people/`)
         .then((res) => res.json())
         .then((characters) => {
-            characters.forEach(character => {
-            console.log(character.name);
-            console.log(character.films[0]);
+            const ul = document.createElement("ul");
 
-            //create a ul, li, a, add data attribute to anchor tag that contains a film
-        });
-    })
-    
-      .then(()=> {
-        //attach an event listener to each link, calls a new function that makes 
-        // 2nd AJAX call
-        //function name is getMovie()
+            characters.forEach(character => {
+                console.log(character.name);
+                console.log(character.films[0]);
+
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                if (selectedCharacters.includes(character.name)) {
+                    a.textContent = (character.name);
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                }
+            })
+            characterBox.appendChild(ul);
+        })
+        .then(function(){
+            const links = document.querySelectorAll("#character-box li a");
+                console.log(links);
+                links.forEach(function(link){
+                    link.addEventListener("click", getCharacters);
+            })
       })
-      .catch((error) => {
-        console.error("Oops… this page has gone to a galaxy far, far away.")}
-        );
+      .catch(function(error){
+        console.error("Oops… this page has gone to a galaxy far, far away.");
+     });
     }
     
-    function getMovie() {
-        fetch("https://swapi.info/api/films")
-            .then((res) => res.json())
-            .then((movie) => {
-                console.log(`img.src="images/poster${movie.episode_id}.jpg"`);
-                console.log(movie.title);
-                console.log(movie.opening_crawl);
-            })
-    
-            .catch((error) => {
-                console.error("Oops… this page has gone to a galaxy far, far away.")}
-                );
-        }
-    
     // Calling the Functions
-    getCharacters();
-    getMovie();  
+    getCharacters(); 
 
 })();
