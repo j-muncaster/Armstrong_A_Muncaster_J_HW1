@@ -1,0 +1,28 @@
+// Header Font : Roboto
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+// Body Font : Oxanium
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
+
+$font-primary: "Roboto", sans-serif;
+$font-secondary: "Oxanium", serif;
+
+$weight-regular: 400;
+$weight-medium: 500;
+$weight-bold: 700;
+
+body,
+p {
+  font-family: $font-primary;
+  font-weight: $weight-regular;
+  line-height: 1.6;
+  color: white;
+}
+
+h1,
+h2,
+h3 {
+    font-family: $font-secondary;
+    font-weight: $weight-bold;
+    color: white;
+}
