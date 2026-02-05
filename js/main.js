@@ -14,4 +14,51 @@
         const  baseUrl = "https://swapi.info/api/";
     
         // set up variables for DOM elements 
- 
+        
+    function getCharacters(){
+        fetch(`${baseUrl}people`)
+      .then((res) => res.json())
+      .then((characters) => {
+        //console.log(json[0].name);
+        characters.forEach(character => {
+            console.log(character.name);
+            console.log(character.films[0]);
+    
+        });
+    })
+    
+    
+      .then(()=> {
+        //attach an event listener to each link, calls a new function that makes 
+        // 2nd AJAX call
+        //function name is getMovie()
+      })
+      .catch((error) => {
+        console.error(error)
+        
+        })
+    }
+    
+        function getMovie() {
+            // need to extract data attribute either using eveent object or
+            // https://swapi.info/api/films/
+        fetch("https://swapi.info/api/films/1")
+            .then((res) => res.json())
+            .then((movie) => {
+    
+                console.log(`img.src="images/poster${movie.episode_id}.jpg"`);
+                console.log(movie.title);
+                console.log(movie.opening_crawl);
+    
+            })
+    
+            .catch((error) => {
+                console.error(error)
+            })
+        }
+    
+    
+    getMovie();    
+    // call the functions to kick things off
+    getCharacters();
+        })();
