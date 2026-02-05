@@ -12,6 +12,8 @@
     
     // variables
         const  baseUrl = "https://swapi.info/api/";
+        const reviewCon = document.querySelector("#review-con");
+        const characterTemplate = document.querySelector("#character-template");
     
         // set up variables for DOM elements 
         
@@ -19,11 +21,9 @@
         fetch(`${baseUrl}people`)
       .then((res) => res.json())
       .then((characters) => {
-        //console.log(json[0].name);
         characters.forEach(character => {
             console.log(character.name);
             console.log(character.films[0]);
-    
         });
     })
     
