@@ -51,6 +51,8 @@
     
             .catch(err => console.log("Oops… this page has gone to a galaxy far, far away."));
         }
+
+        
     
     
     getMovie();    
