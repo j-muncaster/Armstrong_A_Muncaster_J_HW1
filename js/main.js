@@ -33,10 +33,7 @@
         // 2nd AJAX call
         //function name is getMovie()
       })
-      .catch((error) => {
-        console.error(error)
-        
-        })
+      .catch(err => console.log("Oops… this page has gone to a galaxy far, far away."));
     }
     
         function getMovie() {
@@ -52,9 +49,7 @@
     
             })
     
-            .catch((error) => {
-                console.error(error)
-            })
+            .catch(err => console.log("Oops… this page has gone to a galaxy far, far away."));
         }
     
     
