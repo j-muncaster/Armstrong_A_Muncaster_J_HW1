@@ -18,6 +18,19 @@
         "R2-D2"
     ];
 
+    const characterImages = {
+        "Luke Skywalker": "images/image1.jpeg",
+        "Leia Organa": "images/image5.jpeg",
+        "Obi-Wan Kenobi": "images/image10.jpeg",
+        "Anakin Skywalker": "images/image11.jpeg",
+        "Chewbacca": "images/image13.jpeg",
+        "Yoda": "images/image20.jpeg",
+        "Jar Jar Binks": "images/image36.jpeg",
+        "Padme Amidala": "images/image35.jpeg",
+        "C-3PO": "images/image2.jpeg",
+        "R2-D2": "images/image3.jpeg"
+    };
+
     // Functions
     function getCharacters(){
         fetch(`${baseUrl}people/`)
@@ -50,8 +63,8 @@
         console.error("Oops… this page has gone to a galaxy far, far away.");
      });
     }
-    
+
     // Calling the Functions
-    getCharacters(); 
+    getCharacters();
 
 })();
