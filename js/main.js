@@ -43,6 +43,7 @@
                 if (selectedCharacters.includes(character.name)) {
                     img.src = characterImages[character.name]; 
                     a.textContent = (character.name);
+                    a.characterFilms = character.films;
                     li.appendChild(img);
                     li.appendChild(a);
                     ul.appendChild(li);
@@ -61,13 +62,14 @@
     }
 
     function getMovie(e) {
-        fetch(`${baseUrl}films/`)
-                infoCon.innerHTML = "";
-                const films = data.results;
-                const characterMovies = films.filter(film => characterFilms.includes(film.url))
+        const characterFilms = e.currentTarget.characterFilms;
+        infoCon.innerHTML = "";
 
+        fetch(`${baseUrl}films/`)
             .then(res => res.json())
             .then(data => {
+                const films = data.results;
+                const characterMovies = films.filter(film => characterFilms.includes(film.url));
 
                 characterMovies.forEach(movie => {
                     const clone = characterTemplate.content.cloneNode(true);
