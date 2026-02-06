@@ -40,8 +40,8 @@
                 const img = document.createElement("img");
                 const li = document.createElement("li");
                 const a = document.createElement("a");
-                img.src = character.Poster;
                 if (selectedCharacters.includes(character.name)) {
+                    img.src = characterImages[character.name]; 
                     a.textContent = (character.name);
                     li.appendChild(img);
                     li.appendChild(a);
@@ -53,58 +53,42 @@
         .then(function(){
             const links = document.querySelectorAll("#character-box li a");
                 console.log(links);
-                links.forEach(function(link){
-                    link.addEventListener("click", getMovie);
-            })
+                links.forEach(link => link.addEventListener("click", getMovie));
       })
       .catch(function(error){
-        console.error("Oops… this page has gone to a galaxy far, far away.");
+        console.error("Oops… this page has gone to a galaxy far, far away.", error);
      });
     }
 
     function getMovie(e) {
-        const characterFilms = (e.currentTarget.dataset.films);
-
-        infoCon.innerHTML = "";
-
         fetch(`${baseUrl}films/`)
+                infoCon.innerHTML = "";
+                const films = data.results;
+                const characterMovies = films.filter(film => characterFilms.includes(film.url))
+
             .then(res => res.json())
             .then(data => {
-                const films = data.results;
-                const characterMovies = films.filter(film => characterFilms.includes(film.url));
 
                 characterMovies.forEach(movie => {
                     const clone = characterTemplate.content.cloneNode(true);
                     const movieTitle = clone.querySelector(".movie-title");
-                    const movieDesc = clone.querySelector(".movie-description");
+                    const movieCrawl = clone.querySelector(".movie-description");
 
-                    movieTitle.innerHTML = movie.title;
+                    const moviePoster = document.createElement("img");
+                    moviePoster.src = `images/poster_starwars_${movie.episode_id}.jpg`;
+                    moviePoster.alt = `${movie.title} Movie Poster`;
 
-                    const poster = document.createElement("img");
-                    poster.src = `images/poster${movie.episode_id}.jpg`;
-
-                    movieTitle.appendChild(poster);
-                    movieDesc.innerHTML = movie.opening_crawl;
+                    movieTitle.textContent = movie.title;
+                    movieTitle.appendChild(moviePoster);
+                    movieCrawl.textContent = movie.opening_crawl;
 
                     infoCon.appendChild(clone);
                 });
             })
             .catch(function(error){
-            console.error("Oops… this page has gone to a galaxy far, far away.");
+            console.error("Oops… this page has gone to a galaxy far, far away.", error);
             });
     }
-
     // Calling the Functions
     getCharacters();
-
-    //GSAP Animations
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-    
-    gsap.from(".logo", {
-        opacity: 0,
-        y: 50,
-        scale: 0.9,
-        duration: 2,
-        ease: "power2.out",
-    });
 })();
