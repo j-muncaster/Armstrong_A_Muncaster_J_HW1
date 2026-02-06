@@ -1,6 +1,7 @@
 (() => {
     // Variables
     const characterTemplate = document.querySelector("#character-template");
+    const movieTemplate = document.querySelector("#movie-template");
     const infoCon = document.querySelector("#info-con");
     const characterBox = document.querySelector("#character-box");
     const templateImages = characterTemplate.content.querySelectorAll(".character-images img");
@@ -68,16 +69,16 @@
         fetch(`${baseUrl}films/`)
             .then(res => res.json())
             .then(data => {
-                const films = data.results;
+                const films = data;
                 const characterMovies = films.filter(film => characterFilms.includes(film.url));
 
                 characterMovies.forEach(movie => {
-                    const clone = characterTemplate.content.cloneNode(true);
+                    const clone = movieTemplate.content.cloneNode(true);
                     const movieTitle = clone.querySelector(".movie-title");
                     const movieCrawl = clone.querySelector(".movie-description");
 
                     const moviePoster = document.createElement("img");
-                    moviePoster.src = `images/poster_starwars_${movie.episode_id}.jpg`;
+                    moviePoster.src = `images/poster_starwars_${movie.episode_id}.webp`;
                     moviePoster.alt = `${movie.title} Movie Poster`;
 
                     movieTitle.textContent = movie.title;

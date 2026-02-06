@@ -46,7 +46,7 @@ h2 {
   }
 
   img {
-    width: auto;
+    width: 100px;
     height: 100px;
     object-fit: contain;
     margin-right: 10px;
@@ -60,7 +60,7 @@ h2 {
   background-position: center;
   background-repeat: no-repeat;
   min-height: 100vh;
-
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -91,7 +91,6 @@ h2 {
   flex: 1;
 }
 
-
 .logo {
   width: 300px;
   height: auto;
@@ -103,35 +102,57 @@ h2 {
 #info-con {
   flex: 1;
   min-width: 300px;
+  max-height: 500px;
+  overflow-y: auto;
+  padding-right: 10px;
 
   .movie-info {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-
-    .movie-poster img {
-      width: 100%;
-      max-width: 300px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(255, 234, 0, 0.7);
-    }
+    margin-bottom: 30px;
 
     .movie-title {
-      font-size: 1.5rem;
-      color: #feda4a;
-      margin-bottom: 5px;
+      font-size: 24px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .movie-content {
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+      align-items: flex-start;
+    }
+
+    .movie-poster img {
+      width: 100px;
+      height: auto;
+      border-radius: 12px;
+      flex-shrink: 0;
+      margin-top: 40px;
     }
 
     .movie-description {
-      font-size: 1rem;
+      font-size: 14px;
       color: #fff;
       line-height: 1.5;
+      text-align: left;
     }
   }
 }
 
+
 @media (max-width: 768px) {
   .lightbox > section {
-    flex: 0 0 200px; // narrower width
+    flex: 0 0 200px;
+  }
+
+  #info-con .movie-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #info-con .movie-poster img {
+    width: 120px;
   }
 }

@@ -29,14 +29,10 @@
           <h1 class="hidden">Character Info</h1>
             <section id="info-con">
               <template id="character-template">
-                  <div>
-                    <h3 class="movie-title"></h3>
-                    <p class="movie-description"></p>
-                
                     <div class="character-images">
                       <img src="images/image1.png" data-id="1" alt="Luke Skywalker">
                       <img src="images/image5.png" data-id="5" alt="Leia Organa">
-                      <img src="images/image10.png" data-id="10" alt="Obi Wan Kenobi">
+                      <img src="images/image10.png" data-id="10" alt="Obi-Wan Kenobi">
                       <img src="images/image11.png" data-id="11" alt="Anakin Skywalker">
                       <img src="images/image13.png" data-id="13" alt="Chewbacca">
                       <img src="images/image20.png" data-id="20" alt="Yoda">
@@ -45,7 +41,17 @@
                       <img src="images/image2.png" data-id="2" alt="C-3PO">
                       <img src="images/image3.png" data-id="3" alt="R2-D2">
                     </div>
+              </template>
+
+              <template id="movie-template">
+                <div class="movie-info">
+                  <h3 class="movie-title"></h3>
+                  <div class="movie-content">
+                    <div class="movie-poster">
+                    </div>
+                    <div class="movie-description"></div>
                   </div>
+                </div>
               </template>
             </section>
         </div>
