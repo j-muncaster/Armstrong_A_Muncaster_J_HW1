@@ -50,7 +50,7 @@
                     ul.appendChild(li);
                 }
             })
-            characterBox.appendChild(ul);
+            characterBox.appendChild(ul); 
         })
         .then(function(){
             const links = document.querySelectorAll("#character-box li a");
@@ -94,4 +94,35 @@
     }
     // Calling the Functions
     getCharacters();
+
+    // GSAP Animations
+    if (document.querySelector("#character-box")) {
+        gsap.from("#character-box li", {
+            opacity: 0,
+            y: 50,
+            scale: 0.9,
+            duration: 1,
+            ease: "back.out(1.7)",
+            stagger: 0.1
+        });
+    }
+
+    if (document.querySelector(".movie-card")) {
+        gsap.from(movieCard, {
+            opacity: 0,
+            y: 30,
+            scale: 0.95,
+            duration: 0.8,
+            ease: "power3.out"
+        });
+    }
+
+    document.querySelectorAll(".movie-card").forEach(card => {
+        card.addEventListener("mouseenter", () => {
+            gsap.to(card, { scale: 1.02, duration: 0.3, boxShadow: "0px 10px 20px rgba(0,0,0,0.2)" });
+        });
+        card.addEventListener("mouseleave", () => {
+            gsap.to(card, { scale: 1, duration: 0.3, boxShadow: "0px 4px 6px rgba(0,0,0,0.1)" });
+        });
+    });
 })();
