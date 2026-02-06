@@ -3,6 +3,9 @@ a {
 }
 
 #character-box {
+  overflow-y: auto;
+  max-height: 200px;
+
   ul {
     list-style: none;
     padding: 0;
@@ -21,7 +24,7 @@ a {
   } 
   
   a {
-    margin-left: 10px;
+    margin: 20px;
     text-decoration: none;
     color: #fff;
     font-weight: bold;
@@ -61,7 +64,6 @@ a {
   padding-left: 30px;
   border-radius: 16px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-  overflow-y: auto;
 }
 
 .logo {
