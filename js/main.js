@@ -3,6 +3,7 @@
     const characterTemplate = document.querySelector("#character-template");
     const infoCon = document.querySelector("#info-con");
     const characterBox = document.querySelector("#character-box");
+    const templateImages = characterTemplate.content.querySelectorAll(".character-images img");
     const baseUrl = `https://swapi.info/api/`;
 
     const selectedCharacters = [
@@ -18,19 +19,6 @@
         "R2-D2"
     ];
 
-    const characterImages = {
-        "Luke Skywalker": "images/image1.jpeg",
-        "Leia Organa": "images/image5.jpeg",
-        "Obi-Wan Kenobi": "images/image10.jpeg",
-        "Anakin Skywalker": "images/image11.jpeg",
-        "Chewbacca": "images/image13.jpeg",
-        "Yoda": "images/image20.jpeg",
-        "Jar Jar Binks": "images/image36.jpeg",
-        "Padme Amidala": "images/image35.jpeg",
-        "C-3PO": "images/image2.jpeg",
-        "R2-D2": "images/image3.jpeg"
-    };
-
     // Functions
     function getCharacters(){
         fetch(`${baseUrl}people/`)
@@ -38,14 +26,24 @@
         .then((characters) => {
             const ul = document.createElement("ul");
 
+            const characterImages = {};
+                templateImages.forEach(img => {
+                    characterImages[img.alt] = img.src;
+                });
+
+                console.log(characterImages);
+                
             characters.forEach(character => {
                 console.log(character.name);
                 console.log(character.films[0]);
 
+                const img = document.createElement("img");
                 const li = document.createElement("li");
                 const a = document.createElement("a");
+                img.src = character.Poster;
                 if (selectedCharacters.includes(character.name)) {
                     a.textContent = (character.name);
+                    li.appendChild(img);
                     li.appendChild(a);
                     ul.appendChild(li);
                 }
@@ -67,4 +65,14 @@
     // Calling the Functions
     getCharacters();
 
+    //GSAP Animations
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+    
+    gsap.from(".logo", {
+        opacity: 0,
+        y: 50,
+        scale: 0.9,
+        duration: 2,
+        ease: "power2.out",
+    });
 })();
