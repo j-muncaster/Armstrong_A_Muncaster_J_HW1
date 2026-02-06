@@ -18,7 +18,7 @@
         "C-3PO",
         "R2-D2"
     ];
-
+    
     // Functions
     function getCharacters(){
         fetch(`${baseUrl}people/`)
@@ -54,12 +54,44 @@
             const links = document.querySelectorAll("#character-box li a");
                 console.log(links);
                 links.forEach(function(link){
-                    link.addEventListener("click", getCharacters);
+                    link.addEventListener("click", getMovie);
             })
       })
       .catch(function(error){
         console.error("Oops… this page has gone to a galaxy far, far away.");
      });
+    }
+
+    function getMovie(e) {
+        const characterFilms = (e.currentTarget.dataset.films);
+
+        infoCon.innerHTML = "";
+
+        fetch(`${baseUrl}films/`)
+            .then(res => res.json())
+            .then(data => {
+                const films = data.results;
+                const characterMovies = films.filter(film => characterFilms.includes(film.url));
+
+                characterMovies.forEach(movie => {
+                    const clone = characterTemplate.content.cloneNode(true);
+                    const movieTitle = clone.querySelector(".movie-title");
+                    const movieDesc = clone.querySelector(".movie-description");
+
+                    movieTitle.innerHTML = movie.title;
+
+                    const poster = document.createElement("img");
+                    poster.src = `images/poster${movie.episode_id}.jpg`;
+
+                    movieTitle.appendChild(poster);
+                    movieDesc.innerHTML = movie.opening_crawl;
+
+                    infoCon.appendChild(clone);
+                });
+            })
+            .catch(function(error){
+            console.error("Oops… this page has gone to a galaxy far, far away.");
+            });
     }
 
     // Calling the Functions
